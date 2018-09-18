@@ -27,13 +27,12 @@ namespace alloc
                 }
                 catch (OutOfMemoryException)
                 {
-                    Console.WriteLine($"FAILED - Could allocate only {totalAllocated} out of {totalMem}. Failed block size: {thisBlockSize}");
+                    Console.WriteLine($"FAILED - Could allocate only {totalAllocated} out of {totalMem} bytes. Failed block size: {thisBlockSize}");
                     return 1;
                 }
             }
 
-            blocks.Clear();
-            Console.WriteLine("SUCCESS");
+            Console.WriteLine($"SUCCESS - Allocated {blocks.Count} blocks of memory, totalling {totalMemStr}");
             return 0;
         }
 
